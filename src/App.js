@@ -1,11 +1,11 @@
 import logo from './platzi.webp';
-import { TodoCounter } from './TodoCounter';
-import { TodoList } from './TodoList';
-import { TodoSearch } from './TodoSearch';
+import './App.css'
+import { TodoCounter } from './TodoCounter/TodoCounter';
+import { TodoList } from './TodoList/TodoList';
+import { TodoSearch } from './TodoSearch/TodoSearch';
 import { CreateTodoButton } from './CreateTodoButton';
-import './App.css';
 import { TodoItem } from './TodoItem';
-import React from 'react';
+import { TodoAdd } from './TodoAdd/TodoAdd'
 
 const defaultTodos = [
 	{
@@ -28,16 +28,17 @@ const defaultTodos = [
 
 function App() {
     return (
-    <React.Fragment>
+    <main>
         <TodoCounter completed={16} total={30} />
         <TodoSearch />
             <TodoList>
                 {defaultTodos.map(todo => (
                     <TodoItem key={todo.text} text={ todo.text} completed= {todo.completed} />
                 ))}
-        </TodoList>
+            </TodoList>
+            <TodoAdd />
         <CreateTodoButton />
-    </React.Fragment>
+    </main>
   );
 }
 
