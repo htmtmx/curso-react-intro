@@ -1,3 +1,21 @@
-input {
-    padding: 8px;
+input.input-todo-add {
+    width: 100%;
+    background-color: cornflowerblue;
+    border: #2d3b8181 solid 2px;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    padding: 8px 16px;
+    margin-right: 80px;
+}
+
+input.input-todo-add::placeholder {
+    color: #000;
+}
+
+input.input-todo-add:focus {
+    outline: none;
+    background-color:#ffffff;
+    color: #2d3b81;
 }

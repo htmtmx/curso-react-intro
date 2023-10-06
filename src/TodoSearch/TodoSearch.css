@@ -1,5 +1,20 @@
 input.input_search {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    outline: #424554 solid 1px;
+    border-radius: 4px;
+    background-color: #c6cade;
+}
+
+input.input_search::placeholder {
+    color: #424554;
+}
+
+input.input_search:focus {
+    outline: none;
+    border: #424554 solid 1px;
+    background-color: #ffffff;
+    color: #424554;
 }

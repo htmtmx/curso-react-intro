@@ -1,4 +1,9 @@
 ul {
     max-height: 50vh;
     overflow-y: scroll;
+    background-color: bisque;
+    border: #424554 solid 2px;
+    box-shadow: 10px 10px 10px rgba(233, 134, 134, 0.3);
+    padding: 8px 16px;
+    list-style: none;
 }

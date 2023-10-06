@@ -8,9 +8,10 @@ const defaultExamplesTodos = [
 
 function TodoAdd(params) {
     
+    
     return (
         <>
-            <input placeholder='Lavar los trastes'></input>
+            <input className='input-todo-add' placeholder='Lavar los trastes'></input>
         </>
     )
 }
