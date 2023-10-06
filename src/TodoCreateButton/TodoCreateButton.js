@@ -3,7 +3,11 @@ import './TodoCreateButton.css'
 function TodoCreateButton() {
     return (
         <>
-            <button>+</button>
+            <button onClick={(event) => {
+                console.log('Diste click');
+                console.log(event);
+                console.log(event.target);
+            }}>+</button>
         </>
     );
 }
