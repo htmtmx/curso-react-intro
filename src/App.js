@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from './platzi.webp';
 import './App.css'
 import { TodoCounter } from './TodoCounter/TodoCounter';
@@ -26,12 +27,22 @@ const defaultTodos = [
 	},
 ];
 
+
 function App() {
+    const [stateSearchValue, setStateSearchValue] = React.useState("");
+    const [todos, setTodos] = React.useState(defaultTodos);
+
+    const completedTodos = todos.filter(todo => !!todo.completed ).length;
+    const totalTodos = todos.length;
+    console.log("Se buscan todos de:" + stateSearchValue);
     return (
 			<main>
-				<TodoCounter completed={16} total={30} />
+				<TodoCounter completed={ completedTodos } total={ totalTodos } />
 				<section className="container-search">
-                    <TodoSearch />
+                <TodoSearch
+                    stateSearchValue = {stateSearchValue}
+                    setStateSearchValue = { setStateSearchValue}
+                />
                 </section>
 				<div className="container-todo-list">
                     <TodoList>
