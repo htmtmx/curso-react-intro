@@ -8,18 +8,33 @@ import { TodoCreateButton } from "./TodoCreateButton/TodoCreateButton";
 import { TodoItem } from './TodoItem/TodoItem';
 import { TodoAdd } from './TodoAdd/TodoAdd'
 
+function useLocalStorage(itemName, initialValue) {
+    
+    const localStorageItem = localStorage.getItem(itemName);
+    let parsedItem;
+
+    if (!localStorageItem) {
+        localStorage.setItem(itemName, JSON.stringify(initialValue));
+        parsedItem = initialValue;
+    } else {
+        parsedItem = JSON.parse(localStorageItem);
+    }
+
+    const [item, setItem] = React.useState(parsedItem);
+
+    const saveItem = (newItem) => {
+        const stringifiedTodos = JSON.stringify(newItem);
+        localStorage.setItem(itemName, stringifiedTodos);
+        setItem(newItem);
+    };
+
+    return [item, saveItem];
+}
 
 function App() {
-    const localStorageTodos = localStorage.getItem("todos_v1");
-    let parsedTodos;
-    if (!localStorageTodos) {
-        localStorage.setItem("todos_v1", JSON.stringify([]));
-        parsedTodos= []
-    }else{
-        parsedTodos = JSON.parse(localStorageTodos);
-    }
+
+    const [todos, saveTodos] = useLocalStorage("TODOS_V1", []);
     const [stateSearchValue, setStateSearchValue] = React.useState("");
-    const [todos, setTodos] = React.useState(parsedTodos);
 
     const completedTodos = todos.filter(todo => !!todo.completed ).length;
     const totalTodos = todos.length;
@@ -28,12 +43,6 @@ function App() {
         const search_text = stateSearchValue.toLowerCase();
         return todo_text.includes(search_text);
     });
-
-    const saveTodos = (newTodos) => {
-        const stringifiedTodos = JSON.stringify(newTodos);
-        localStorage.setItem("todos_v1", stringifiedTodos);
-        setTodos(newTodos);
-    }
 
     const completeTodo = (text) => {
         const newTodos = [...todos];
@@ -57,7 +66,7 @@ function App() {
                     stateSearchValue={stateSearchValue}
                     setStateSearchValue={setStateSearchValue}
                 />
-        </section>
+            </section>
             <div className="container-todo-list">
                 <TodoList>
                     {searchedTodos.map((todo) => (
