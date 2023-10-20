@@ -1,11 +1,5 @@
 import './TodoAdd.css'
 
-const defaultExamplesTodos = [
-    {
-        text: ''
-    }
-]
-
 function TodoAdd(params) {
     
     
