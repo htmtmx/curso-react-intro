@@ -1,0 +1,27 @@
+
+.icon-svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.icon-container-check .icon-svg {
+    color: gray;
+    margin-left: 16px;
+    font-weight: 700;
+    font-size: 24px;
+}
+.icon-container-delete .icon-svg {
+    position: absolute;
+    color: gray;
+    right: 0;
+    top: 0;
+    font-size: 18px;
+    margin-right: 8px;
+    margin-top: 4px;
+    font-weight: 700;
+}
+
+.icon-container-delete .icon-svg:hover {
+  fill: red;
+}

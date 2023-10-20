@@ -9,41 +9,10 @@
     border-radius: 8px;
 }
 
-li span.icon-check{
-    color: gray;
-    margin-left: 16px;
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.icon {
-    cursor: pointer;
-}
-
-li span.icon-check--active{
-    color: green;
-}
-
 li p.todo-item-p {
     margin-inline: auto;
 }
 
 li p.todo-item-p--complete {
     text-decoration: line-through;
-}
-
-li span.icon-delete {
-    position: absolute;
-    color: gray;
-    right: 0;
-    top: 0;
-    font-size: 18px;
-    margin-right: 8px;
-    margin-top: 4px;
-    font-weight: 700;
-}
-
-li span.icon-delete:hover {
-    color: red;
-    
 }
