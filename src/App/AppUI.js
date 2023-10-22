@@ -15,6 +15,8 @@ function AppUI(
         setStateSearchValue,
         completeTodo,
         deleteTodo,
+        error, 
+        loading,
     }
 ) {
     return (
@@ -27,7 +29,10 @@ function AppUI(
 					/>
 				</section>
 				<div className="container-todo-list">
-					<TodoList>
+                <TodoList>
+                    {loading && <p>Estamos cargando...</p>}
+                    {error && <p>Error!</p>}
+                    {!loading && searchedTodos.length ===0 && <p>Agrega un todo</p>}
 						{searchedTodos.map((todo) => (
 							<TodoItem
 								key={todo.text}
