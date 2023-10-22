@@ -1,9 +1,16 @@
 ul {
-    max-height: 50vh;
+    max-height: 45vh;
+    min-height: 30vh;
     overflow-y: scroll;
-    background-color: bisque;
+    background-color: black;
     border: #424554 solid 2px;
+    border-radius: 8px;
     box-shadow: 10px 10px 10px rgba(233, 134, 134, 0.3);
     padding: 8px 16px;
     list-style: none;
+    position: relative;
+}
+
+ul::-webkit-scrollbar{
+    display: none;
 }
