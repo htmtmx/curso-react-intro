@@ -8,44 +8,48 @@ import { TodoAdd } from "../TodoAdd";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
+import { TodoContext } from "../TodoContext";
 
-function AppUI(
-    {
-        totalTodos,
-        completedTodos,
-        searchedTodos,
-        stateSearchValue,
-        setStateSearchValue,
-        completeTodo,
-        deleteTodo,
-        error, 
-        loading,
-    }
-) {
+function AppUI() {
     return (
 			<main>
-				<TodoCounter completed={completedTodos} total={totalTodos} />
+				<TodoContext.Consumer>
+					{({ totalTodos, completedTodos }) => (
+						<TodoCounter completed={completedTodos} total={totalTodos} />
+					)}
+				</TodoContext.Consumer>
 				<section className="container-search">
-					<TodoSearch
-						stateSearchValue={stateSearchValue}
-						setStateSearchValue={setStateSearchValue}
-					/>
+					<TodoContext.Consumer>
+						{({
+							stateSearchValue,
+							setStateSearchValue,
+						}) => (
+							<TodoSearch
+								stateSearchValue={stateSearchValue}
+								setStateSearchValue={setStateSearchValue}
+							/>
+						)}
+					</TodoContext.Consumer>
 				</section>
 				<div className="container-todo-list">
-                <TodoList>
-                    {loading && <TodosLoading/>}
-                    {error && <TodosError/>}
-                    {!loading && searchedTodos.length ===0 && <EmptyTodos/>}
-						{searchedTodos.map((todo) => (
-							<TodoItem
-								key={todo.text}
-								text={todo.text}
-								completed={todo.completed}
-								onComplete={() => completeTodo(todo.text)}
-								onDelete={() => deleteTodo(todo.text)}
-							/>
-						))}
-					</TodoList>
+					<TodoContext.Consumer>
+						{({ searchedTodos, completeTodo, deleteTodo, error, loading }) => (
+							<TodoList>
+								{loading && <TodosLoading />}
+								{error && <TodosError />}
+								{!loading && searchedTodos.length === 0 && <EmptyTodos />}
+								{searchedTodos.map((todo) => (
+									<TodoItem
+										key={todo.text}
+										text={todo.text}
+										completed={todo.completed}
+										onComplete={() => completeTodo(todo.text)}
+										onDelete={() => deleteTodo(todo.text)}
+									/>
+								))}
+							</TodoList>
+						)}
+					</TodoContext.Consumer>
 				</div>
 				<div className="section-add-todo">
 					<TodoAdd />
