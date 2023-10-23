@@ -1,8 +1,9 @@
 import './TodoList.css'
-function TodoList(props) {
+import React from 'react';
+function TodoList({ children }) {
     return (
         <ul>
-            {props.children}
+            { children }
         </ul>
     );
 }
