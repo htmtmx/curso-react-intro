@@ -9,35 +9,37 @@ import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
 import { TodoContext } from "../TodoContext";
+import { Modal } from "./Modal";
 
 function AppUI() {
-    const { searchedTodos, completeTodo, deleteTodo, error, loading } =
+    const { searchedTodos, completeTodo, deleteTodo, error, loading, openModal } =
 			React.useContext(TodoContext);
     return (
 			<main>
-				<TodoCounter/>
+				<TodoCounter />
 				<section className="container-search">
-					<TodoSearch/>
+					<TodoSearch />
 				</section>
 				<div className="container-todo-list">
-                    <TodoList>
-                        {loading && <TodosLoading />}
-                        {error && <TodosError />}
-                        {!loading && searchedTodos.length === 0 && <EmptyTodos />}
-                        {searchedTodos.map((todo) => (
-                            <TodoItem
-                                key={todo.text}
-                                text={todo.text}
-                                completed={todo.completed}
-                                onComplete={() => completeTodo(todo.text)}
-                                onDelete={() => deleteTodo(todo.text)}
-                            />
-                        ))}
-                    </TodoList>
+					<TodoList>
+						{loading && <TodosLoading />}
+						{error && <TodosError />}
+						{!loading && searchedTodos.length === 0 && <EmptyTodos />}
+						{searchedTodos.map((todo) => (
+							<TodoItem
+								key={todo.text}
+								text={todo.text}
+								completed={todo.completed}
+								onComplete={() => completeTodo(todo.text)}
+								onDelete={() => deleteTodo(todo.text)}
+							/>
+						))}
+					</TodoList>
 				</div>
 				<div className="section-add-todo">
 					<TodoAdd />
-					<TodoCreateButton />
+					<TodoCreateButton/>
+					{openModal? <Modal>Funcionalidad de agregar TODO</Modal>:<></>}
 				</div>
 			</main>
 		);

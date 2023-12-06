@@ -9,6 +9,7 @@ function TodoProvider({ children }) {
         loading,
         error } = useLocalStorage("TODOS_V1", []);
     const [stateSearchValue, setStateSearchValue] = React.useState("");
+    const [openModal, setOpenModal] = React.useState(false);
 
     const completedTodos = todos.filter(todo => !!todo.completed ).length;
     const totalTodos = todos.length;
@@ -33,20 +34,24 @@ function TodoProvider({ children }) {
     }
 
     return (
-        <TodoContext.Provider value={{
-            totalTodos,
-            completedTodos,
-            searchedTodos,
-            stateSearchValue,
-            setStateSearchValue,
-            completeTodo,
-            deleteTodo,
-            error,
-            loading,}
-        }>
-            { children }
-        </TodoContext.Provider>
-    );
+			<TodoContext.Provider
+				value={{
+					totalTodos,
+					completedTodos,
+					searchedTodos,
+					stateSearchValue,
+					setStateSearchValue,
+					completeTodo,
+					deleteTodo,
+					error,
+					loading,
+					openModal,
+					setOpenModal,
+				}}
+			>
+				{children}
+			</TodoContext.Provider>
+		);
 }
 
 export { TodoContext, TodoProvider}
