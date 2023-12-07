@@ -7,7 +7,6 @@ input.input-todo-add {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
     padding: 8px 16px;
-    margin-right: 80px;
 }
 
 input.input-todo-add::placeholder {

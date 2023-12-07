@@ -39,7 +39,8 @@ function AppUI() {
 				<div className="section-add-todo">
 					<TodoAdd />
 					<TodoCreateButton/>
-					{openModal? <Modal>Funcionalidad de agregar TODO</Modal>:<></>}
+                {openModal ? <Modal>
+                </Modal> : <></>}
 				</div>
 			</main>
 		);

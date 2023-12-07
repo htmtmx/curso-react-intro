@@ -1,23 +1,19 @@
 button {
     background-color: #363636;
     border: none;
-    border-radius: 50%;
-    height: 64px;
-    width: 64px;
-    font-size: 50px;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    aspect-ratio: 1/1;
+    font-size: 30px;
 
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    transform: rotate(0deg);
-    transition: 0.3s ease;
-    position: absolute;
-    right: 16px;
-    top: 0;
+    margin-left: 1rem;
 }
 
 button:hover {
     cursor: pointer;
-    transform: rotate(45deg);
 }

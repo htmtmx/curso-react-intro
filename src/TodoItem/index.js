@@ -4,7 +4,7 @@ import "./TodoItem.css"
 
 function TodoItem(props) {
 	return (
-        <li className="todo-item">
+        <li className="todo-item glowing">
             <CompleteIcon
                 completed={props.completed}
                 onComplete={props.onComplete} />
