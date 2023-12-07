@@ -5,8 +5,10 @@ import "./modal.css"
 function Modal({ children }) {
     
     return createPortal(
-        <div className="modal">
-            {children}
+        <div className="modal-container">
+            <div className="modal">
+                {children}
+            </div>
         </div>,
         document.getElementById('modal')
     );

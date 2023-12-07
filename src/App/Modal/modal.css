@@ -1,11 +1,87 @@
-.modal{
+.modal-container{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0,0,0,0.5);
     position: absolute;
     top: 0;
     left: 0;
-    margin: 0;
-    padding: 0;
-    gap: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 25%;
+    height: auto;
+    background-color: #27272c;
+    border-radius: 10px;
+    border: 3px rgb(0,212,255 ) solid;
+    box-shadow: 0 0 20px 0 rgb(0,212,255 );
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 768px) {
+        width: 80%;
+        height: 50%;
+    }
+
+}
+
+.modal-header{
+    width: 100%;
+    text-align: center;
+    border-bottom: 3px solid rgb(0,212,255 );
+}
+
+.modal-header h2{
+    color: rgb(255,255,255);
+}
+
+.modal-body input, .modal-body label{
+    margin: 0 1rem;
+    outline: none;
+}
+
+.modal-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0;
+}
+
+.modal-body label{
+    color: rgb(255,255,255);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.modal-body input{
+    border-radius: 4px;
+    font-size: 1.2rem;
+    border: 1px solid #7a7a89;
+    padding: 0.5rem;
+    background-color: rgb(63, 63, 72);
+}
+
+.modal-body input:focus{
+    border: 1px solid rgb(0,212,255 );
+    box-shadow: 0 0 5px 0 rgb(0,212,255 );
+}
+
+.modal-footer{
+    border-top: 3px solid rgb(0,212,255 );
+    width: 100%;
+    height: auto;
+    padding: 1rem 0;
+
+}
+
+.modal-footer button{
+    width: min-content;
+    font-size: 1.2rem;
+    text-wrap: nowrap;
+    margin-left: auto;
+    margin-right: 1rem;
 }

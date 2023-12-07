@@ -39,8 +39,21 @@ function AppUI() {
 				<div className="section-add-todo">
 					<TodoAdd />
 					<TodoCreateButton/>
-                {openModal ? <Modal>
-                </Modal> : <></>}
+                    {openModal ?
+                    
+                        <Modal>
+                            <div className="modal-header">
+                                <h2>Nuevo TODO</h2>
+                            </div>
+                            <div className="modal-body">
+                                <label htmlFor="todo">Nombre del TO-DO</label>
+                                <input type="text" id="todo"/>
+                            </div>
+                        <div className="modal-footer">
+                            <button>Agregar TODO</button>
+                            </div>
+                        </Modal>
+            : <></>}
 				</div>
 			</main>
 		);
