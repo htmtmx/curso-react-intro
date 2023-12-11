@@ -11,6 +11,11 @@
     font-weight: 700;
     font-size: 24px;
 }
+
+.icon-container-check .icon-svg:hover {
+  fill: rgb(0,212,255 );
+}
+
 .icon-container-delete .icon-svg {
     position: absolute;
     color: gray;

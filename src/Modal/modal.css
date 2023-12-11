@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.form-modal {
+    width: 100%;
+}
+
 .modal{
     width: 25%;
     height: auto;
@@ -23,7 +27,19 @@
     align-items: center;
     @media (max-width: 768px) {
         width: 80%;
-        height: 50%;
+        height: auto;
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+        width: 70%;
+        height: auto;
+    }
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        width: 40%;
+        height: auto;
+    }
+    @media (min-width: 1441px) {
+        width: 30%;
+        height: auto;
     }
 
 }
@@ -76,6 +92,7 @@
     border: 1px solid #7a7a89;
     padding: 0.5rem;
     background-color: rgb(63, 63, 72);
+    color:white;
 }
 
 .modal-body input:focus{

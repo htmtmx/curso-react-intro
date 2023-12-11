@@ -13,12 +13,21 @@ function TodoProvider({ children }) {
 
     const completedTodos = todos.filter(todo => !!todo.completed ).length;
     const totalTodos = todos.length;
+    
     const searchedTodos = todos.filter((todo) => { 
         const todo_text = todo.text.toLowerCase();
         const search_text = stateSearchValue.toLowerCase();
         return todo_text.includes(search_text);
     });
 
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+            text,
+            completed: false,
+        });
+        saveTodos(newTodos);
+    }
     const completeTodo = (text) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(todo => todo.text === text);
@@ -33,6 +42,7 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
     }
 
+
     return (
 			<TodoContext.Provider
 				value={{
@@ -46,7 +56,8 @@ function TodoProvider({ children }) {
 					error,
 					loading,
 					openModal,
-					setOpenModal,
+                    setOpenModal,
+                    addTodo,
 				}}
 			>
 				{children}
