@@ -32,10 +32,23 @@
     width: 100%;
     text-align: center;
     border-bottom: 3px solid rgb(0,212,255 );
-}
-
-.modal-header h2{
-    color: rgb(255,255,255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & h2{
+        color: rgb(255,255,255);
+        margin-left: 1rem;
+    }
+    & .icon-close svg{
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        fill: rgb(255,255,255);
+    }
+    & .icon-close svg:hover{
+        fill: rgb(0,212,255 );
+    }
 }
 
 .modal-body input, .modal-body label{
@@ -78,10 +91,20 @@
 
 }
 
-.modal-footer button{
-    width: min-content;
-    font-size: 1.2rem;
-    text-wrap: nowrap;
-    margin-left: auto;
-    margin-right: 1rem;
+.modal-footer {
+    & button{
+        width: min-content;
+        font-size: 1.2rem;
+        text-wrap: nowrap;
+        margin-left: auto;
+        margin-right: 1rem;
+        border-radius: 8px;
+        padding: 0 1rem;
+        background-color: rgba(128, 221, 239, 0.698);
+    }
+    & button:hover{
+        background-color: rgb(0,212,255 );
+        color: #363636;
+    }
 }
+
