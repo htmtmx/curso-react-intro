@@ -4,7 +4,6 @@ import { TodoList } from "../TodoList/TodoList";
 import { TodoSearch } from "../TodoSearch";
 import { TodoCreateButton } from "../TodoCreateButton";
 import { TodoItem } from "../TodoItem";
-import { TodoAdd } from "../TodoAdd";
 import { TodosLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
@@ -13,7 +12,7 @@ import { Modal } from "../Modal";
 import { TodoForm } from "../TodoForm";
 
 function AppUI() {
-    const { searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal } =
+    const { searchedTodos, completeTodo, deleteTodo, error, loading, openModal } =
 			React.useContext(TodoContext);
     return (
 			<main>
